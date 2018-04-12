@@ -1,0 +1,72 @@
+{
+  "navigation": {
+    "type": "tab",
+    "tab": {
+      "tabBarPositionForIOS": "bottom",
+      "tabBarPositionForAndroid": "bottom"
+
+    },
+    "drawer": {
+      "showUserInfo": true,
+    }
+  },
+  "menu": [
+    {
+      "name": "Home",
+      "title": "Home",
+      "icon": "home"
+    },
+    {
+      "name": "Setting",
+      "title": "Settings",
+      "icon": "settings"
+    }
+  ],
+  "hasTutorial": true,
+  "screens": {
+    "Tutorial": {}
+  },
+  "settings": {
+    "urls": [
+      {
+        "name": "termsOfUse",
+        "label": "Terms of Use",
+        "uri": "http://innovatube.com/"
+      },
+      {
+        "name": "privacyPolicy",
+        "label": "Privacy Policy",
+        "uri": "http://innovatube.com/"
+      }
+    ],
+    "api": {
+      "baseUrl": "https://example.com/api/v1"
+    },
+    "groups": [
+      {
+        "name": "notifications",
+        "label": "Notifications",
+        "items": [
+          {
+            "name": "enableNotification",
+            "label": "Push Notification",
+            "type": "boolean",
+            "defaultValue": true
+          }
+        ]
+      },
+      {
+        "name": "others",
+        "label": "Others",
+        "items": [
+          {
+            "name": "other",
+            "label": "Setting A",
+            "type": "boolean",
+            "defaultValue": false
+          }
+        ]
+      }
+    ]
+  }
+}
