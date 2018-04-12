@@ -6,7 +6,6 @@ import autobind from "autobind-decorator";
 import BaseStack from "./BaseStack"
 import {observer} from "mobx-react/native";
 
-@inject("SessionStore")
 @observer
 export default class App extends React.Component {
 
@@ -39,7 +38,6 @@ export default class App extends React.Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             <Root>
                 <BaseStack onNavigationStateChange={this.handleNavigationStateChange}/>

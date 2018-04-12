@@ -23,7 +23,8 @@ export default class Setup extends React.Component {
 
     @observable isReady = false;
     @action ready() {
-        console.log("App becomes ready");
+        console.log("App becomes ready ");
+        console.log(RootStore);
         this.isReady = true;
     }
 
@@ -40,7 +41,7 @@ export default class Setup extends React.Component {
 
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         StatusBar.setBarStyle("dark-content");
         if (DeviceHelper.isAndroid()) {
             StatusBar.setBackgroundColor("white");
@@ -50,11 +51,19 @@ export default class Setup extends React.Component {
             storage: AsyncStorage
         });
 
-        Promise.all([
-            hydrate('session', RootStore.SessionStore),
-            hydrate('setting', RootStore.SettingStore)
-        ]).then(() => this.ready());
+        const list = await AsyncStorage.getAllKeys();
+        console.log(list);
 
+        const promises = [];
+        const stores = RootStore.getStores();
+        for (let [name, store] of Object.entries(stores)) {
+            const result = hydrate(name, store);
+            store.registerRehydrate(result.rehydrate);
+            promises.push(result);
+        }
+        Promise.all(promises).then(() => this.ready()).catch(e => {
+            console.warn(e)
+        });
     }
 
     render() {

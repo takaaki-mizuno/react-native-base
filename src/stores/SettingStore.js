@@ -1,27 +1,44 @@
 // @flow
 import * as React from "react";
-import {observable, action, extendObservable} from "mobx";
+import {reaction, action, extendObservable} from "mobx";
 import {persist} from 'mobx-persist'
 import BaseStore from "./BaseStore"
 import {config} from "../helpers";
+import {AsyncStorage} from "react-native";
 
 class SettingStore extends BaseStore {
-    @persist @observable someFlag = 'test';
+
+    async getStorage() {
+        const list = await AsyncStorage.getAllKeys();
+        console.log(list);
+    }
 
     constructor() {
         super();
         const settingGroups = config('settings.groups', []);
-        const obaservables = {};
+        const observables = {};
         for (const settingGroup of settingGroups) {
             for (const settingItem of settingGroup.items) {
-                obaservables[settingItem.name] = settingItem.defaultValue;
+                observables[settingItem.name] = settingItem.defaultValue;
             }
         }
 
-        extendObservable(this, obaservables);
-        for (let [key, value] of Object.entries(obaservables)) {
-            persist(this[key]);
+        extendObservable(this, observables);
+        for (let [key, value] of Object.entries(observables)) {
+            persist(this[key])(this);
+            reaction(
+                () => this[key],
+                (data) => {
+                    if (this.rehydrate) {
+                        this.rehydrate().then(() => {
+                            this.getStorage();
+                            console.log(key + ' Changed to ' + data + '. Setting Store Rehydrated')
+                        })
+                    }
+                }
+            );
         }
+
     }
 
     @action
