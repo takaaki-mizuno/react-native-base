@@ -1,3 +1,4 @@
+// @flow
 import { PixelRatio, Dimensions, Platform } from 'react-native';
 
 class DeviceHelper {

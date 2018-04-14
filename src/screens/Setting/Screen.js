@@ -4,7 +4,6 @@ import {
 } from "native-base";
 import {inject} from "mobx-react";
 import {observer} from "mobx-react/native";
-import autobind from "autobind-decorator";
 import SettingsList from 'react-native-settings-list';
 
 import Styles from "./Styles";

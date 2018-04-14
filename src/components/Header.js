@@ -11,7 +11,7 @@ import {
     Right,
 } from "native-base";
 import {inject} from "mobx-react";
-import {config} from "../helpers/ConfigurationHelper";
+import {config} from "../helpers";
 import NavigationHelper from "../helpers/NavigationHelper"
 
 @inject('navigation')

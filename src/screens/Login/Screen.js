@@ -3,7 +3,6 @@ import * as React from "react";
 import { Image, Platform } from "react-native";
 import { Container, Content, Text, View, Footer } from "native-base";
 import BaseScreen from "../Base/Screen";
-import Button from "../../components/Button";
 
 class Login extends BaseScreen {
     render() {
@@ -11,9 +10,6 @@ class Login extends BaseScreen {
             <Container>
                 <Content>
                     <View padder>
-                        <Button width={300} height={80} onPress={() => {}}>
-                            <Text>Login</Text>
-                        </Button>
                     </View>
                 </Content>
                 <Footer style={{ backgroundColor: "#F8F8F8" }}>

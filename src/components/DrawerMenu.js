@@ -8,7 +8,7 @@ import {
 } from 'react-navigation';
 import {ScrollView} from "react-native";
 
-import {config} from "../helpers/ConfigurationHelper";
+import {config} from "../helpers";
 
 class DrawerMenu extends React.Component {
 

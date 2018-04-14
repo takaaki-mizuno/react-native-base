@@ -8,7 +8,7 @@ import Drawer from "./Drawer"
 import Tab from "./Tab"
 import Tutorial from "../screens/Tutorial";
 
-import {config} from "../helpers/ConfigurationHelper";
+import {config} from "../helpers";
 
 export default (() => {
     const routes = {

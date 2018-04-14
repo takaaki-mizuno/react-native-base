@@ -1,4 +1,4 @@
-import {config} from "../helpers/ConfigurationHelper";
+import {config} from "../helpers";
 
 class BaseRepository {
 

@@ -1,13 +1,15 @@
 {
+  "locale": {
+      "default": "en"
+  },
   "navigation": {
-    "type": "tab",
+    "type": "drawer",
     "tab": {
       "tabBarPositionForIOS": "bottom",
       "tabBarPositionForAndroid": "bottom"
-
     },
     "drawer": {
-      "showUserInfo": true,
+      "showUserInfo": true
     }
   },
   "menu": [
@@ -62,6 +64,12 @@
           {
             "name": "other",
             "label": "Setting A",
+            "type": "boolean",
+            "defaultValue": false
+          },
+          {
+            "name": "other",
+            "label": "Setting B",
             "type": "boolean",
             "defaultValue": false
           }
