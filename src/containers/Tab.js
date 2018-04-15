@@ -2,22 +2,29 @@
 import React from "react";
 import {
     TabNavigator,
-    TabBarBottom,
-    TabBarTop,
     StackNavigator,
-    NavigationActions
 } from 'react-navigation';
-import {Icon} from 'native-base';
 import {config} from "../helpers";
 import Routes from "./Routes";
+import TabBarItem from "../components/TabBarItem";
+import TabBar from "../components/TabBar";
 
 export default (() => {
 
     const menu = config('menu');
     const items = {};
     const routes = [];
+    const tabs = [];
 
     for (const menuItem of menu) {
+        const name = menuItem.name + 'Stack';
+        routes.push(name);
+    }
+
+    let activeRouteKey = routes[0];
+
+    for (i=0; i<menu.length; i++) {
+        const menuItem = menu[i];
         const stack = StackNavigator(
             Routes,
             {
@@ -26,61 +33,72 @@ export default (() => {
             }
         );
 
-        const item = {};
-        items[menuItem.name] = {
+        const name = menuItem.name + 'Stack';
+        items[name] = {
             screen: stack,
             navigationOptions:
                 {
-                    tabBarIcon: ({tintColor}) => (
-                        <Icon
-                            containerStyle={{justifyContent: 'center', alignItems: 'center'}}
-                            color={tintColor}
-                            name={menuItem.icon}
-                            size={33}
+                    tabBarIcon: ({tintColor, focused}) => (
+                        <TabBarItem
+                            iconName={menuItem.icon}
+                            focused={menuItem.name === activeRouteName}
                         />
                     ),
                     tabBarLabel: menuItem.label
                 },
+            index: i,
         };
-        routes.push(menuItem.name);
+        tabs.push({
+            key: name,
+            label: menuItem.label,
+            icon: menuItem.icon,
+        });
     }
 
     return TabNavigator(
         items,
         {
             lazy: true,
-            tabBarPosition: 'bottom',
-            tabBarOptions: {
-                showLabel: false,
-//                activeTintColor: colors.primaryDark,
-//                inactiveTintColor: colors.grey,
-                style: {
-//                    backgroundColor: colors.alabaster,
-                },
+            tabBarComponent: ({jumpToIndex, ...props}) => {
+                console.log(props);
+                return (<TabBar onTabPress={(key)=>{
+                    console.log(key);
+                    const {navigation} = props;
+                    if (activeRouteKey !== key) {
+                        jumpToIndex(items[key].index);
+                        activeRouteKey = key
+                    }
+                }} tabs={tabs} focusKey={activeRouteKey} {...props} />);
             },
-            tabBarComponent: ({jumpToIndex, ...props}) => (
-                <TabBarBottom
-                    {...props}
-                    jumpToIndex={index => {
-                        const {dispatch, state} = props.navigation;
-
-                        if (state.index === index && state.routes[index].routes.length > 1) {
-                            const stackRouteName = routes[index];
-
-                            dispatch(
-                                NavigationActions.reset({
-                                    index: 0,
-                                    actions: [
-                                        NavigationActions.navigate({routeName: stackRouteName}),
-                                    ],
-                                })
-                            );
-                        } else {
-                            jumpToIndex(index);
-                        }
-                    }}
-                />
-            ),
+            animationEnabled: false,
+            swipeEnabled: false,
+            /*
+                        tabBarComponent: ({jumpToIndex, ...props}) => (
+                            <TabBarBottom
+                                {...props}
+                                jumpToIndex={index => {
+                                    const {dispatch, state} = props.navigation;
+                                    const tappedRouteName = routes[index];
+                                    console.log(activeRouteName + ' -> ' + tappedRouteName);
+                                    if (tappedRouteName === activeRouteName ) {
+                                        if( state.routes[index].routes.length > 1 ){
+                                            dispatch(
+                                                NavigationActions.reset({
+                                                    index: 0,
+                                                    actions: [
+                                                        NavigationActions.navigate({routeName: tappedRouteName}),
+                                                    ],
+                                                })
+                                            );
+                                        }
+                                    } else {
+                                        jumpToIndex(index);
+                                        activeRouteName = tappedRouteName;
+                                    }
+                                }}
+                            />
+                        ),
+                    */
         }
     );
 })();

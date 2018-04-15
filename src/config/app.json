@@ -3,7 +3,7 @@
       "default": "en"
   },
   "navigation": {
-    "type": "drawer",
+    "type": "tab",
     "tab": {
       "tabBarPositionForIOS": "bottom",
       "tabBarPositionForAndroid": "bottom"

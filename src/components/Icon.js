@@ -35,7 +35,7 @@ class Icon extends React.PureComponent<IconProps> {
     render(): React.Node {
         const {style, color, size, name} = this.props;
         const computedStyle = this.computeStyle();
-        return <BaseIcon style={[style, computedStyle.icon]} {...{color, size, name}}/>
+        return <BaseIcon containerStyle={[style, computedStyle.icon]} {...{color, size, name}}/>
     }
 }
 
