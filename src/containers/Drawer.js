@@ -1,12 +1,11 @@
 // @flow
-import React from "react";
-import Routes from "./Routes";
-import {DrawerNavigator} from "react-navigation";
-import DrawerMenu from "../components/DrawerMenu";
-import {config} from "../helpers";
+import React from 'react';
+import Routes from './Routes';
+import { DrawerNavigator } from 'react-navigation';
+import DrawerMenu from '../components/DrawerMenu';
+import { config } from '../helpers';
 
 export default (() => {
-
     const menu = config('menu');
     const items = {};
     const routes = [];
@@ -23,12 +22,8 @@ export default (() => {
 
     console.log(items);
 
-    return DrawerNavigator(
-        items,
-        {
-            initialRouteName: "Home",
-            contentComponent: props => <DrawerMenu {...props} />,
-        }
-    );
-
+    return DrawerNavigator(items, {
+        initialRouteName: 'Home',
+        contentComponent: props => <DrawerMenu {...props} />,
+    });
 })();

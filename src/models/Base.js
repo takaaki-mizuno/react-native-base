@@ -1,4 +1,3 @@
 class Base {
-    constructor ({}) {
-    }
+    constructor({}) {}
 }

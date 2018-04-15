@@ -1,10 +1,8 @@
 // @flow
-import * as React from "react";
-import {StyleSheet, TouchableWithoutFeedback} from "react-native";
-import Icon from './Icon'
-import {
-    View,
-} from "native-base";
+import * as React from 'react';
+import { StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import Icon from './Icon';
+import { View } from 'native-base';
 
 export type TabBarItemProps = {
     focused: any,
@@ -14,7 +12,6 @@ export type TabBarItemProps = {
 };
 
 class TabBarItem extends React.PureComponent<TabBarItemProps> {
-
     static defaultProps = {
         focused: false,
     };
@@ -32,7 +29,7 @@ class TabBarItem extends React.PureComponent<TabBarItemProps> {
                 alignItems: 'center',
             },
             focused: {
-                position: "absolute",
+                position: 'absolute',
                 backgroundColor: '#000000',
                 borderRadius: 2,
                 top: 4,
@@ -40,32 +37,48 @@ class TabBarItem extends React.PureComponent<TabBarItemProps> {
                 height: 50,
                 justifyContent: 'center',
                 alignItems: 'center',
-            }
+            },
         });
     }
 
     render(): React.Node {
-        const {focused, onPress, tabKey, iconName: name} = this.props;
+        const { focused, onPress, tabKey, iconName: name } = this.props;
         const computedStyle = this.computeStyle();
         if (focused) {
             return (
-                <TouchableWithoutFeedback onPress={() => {onPress(tabKey)}}>
+                <TouchableWithoutFeedback
+                    onPress={() => {
+                        onPress(tabKey);
+                    }}
+                >
                     <View style={computedStyle.container}>
-                        <View style={computedStyle.focused}/>
-                        <Icon size={24} style={computedStyle.icon} color="#ffffff" {...{name}}/>
+                        <View style={computedStyle.focused} />
+                        <Icon
+                            size={24}
+                            style={computedStyle.icon}
+                            color="#ffffff"
+                            {...{ name }}
+                        />
                     </View>
                 </TouchableWithoutFeedback>
             );
-
         }
         return (
-            <TouchableWithoutFeedback onPress={() => {onPress(tabKey)}}>
+            <TouchableWithoutFeedback
+                onPress={() => {
+                    onPress(tabKey);
+                }}
+            >
                 <View style={computedStyle.container}>
-                    <Icon size={24} style={computedStyle.icon} color="#000000" {...{name}}/>
+                    <Icon
+                        size={24}
+                        style={computedStyle.icon}
+                        color="#000000"
+                        {...{ name }}
+                    />
                 </View>
             </TouchableWithoutFeedback>
         );
-
     }
 }
 

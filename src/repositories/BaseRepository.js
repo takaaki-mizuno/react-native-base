@@ -1,20 +1,25 @@
-import {config} from "../helpers";
+import { config } from '../helpers';
 
 class BaseRepository {
-
     constructor() {
         this.BASE_URL = config('api.baseUrl', '');
-        this.PATH = "/";
+        this.PATH = '/';
     }
 
     index(offset, limit, order, direction, searchWord = '', params = {}) {
-        return this.get(this.PATH, Object.assign({
-            "offset": offset || 0,
-            "limit": limit || 0,
-            "direction": direction || 'id',
-            "order": order || 'asc',
-            "query": searchWord || ''
-        }, params));
+        return this.get(
+            this.PATH,
+            Object.assign(
+                {
+                    offset: offset || 0,
+                    limit: limit || 0,
+                    direction: direction || 'id',
+                    order: order || 'asc',
+                    query: searchWord || '',
+                },
+                params
+            )
+        );
     }
 
     show(id, params = {}) {
@@ -51,14 +56,13 @@ class BaseRepository {
         return this.request('POST', url, params);
     }
 
-    getCSRFToken()
-    {
+    getCSRFToken() {
         const tokens = MetaInfoHelper.get('csrf-token');
-        if( tokens.length > 0 ){
+        if (tokens.length > 0) {
             return tokens[0];
         }
 
-        return "";
+        return '';
     }
 
     request(method, url, params = {}) {
@@ -66,27 +70,40 @@ class BaseRepository {
         let formData = new FormData();
         if (method === 'GET' || method === 'HEAD') {
             let query = Object.keys(params)
-                .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
+                .map(
+                    k =>
+                        encodeURIComponent(k) +
+                        '=' +
+                        encodeURIComponent(params[k])
+                )
                 .join('&');
             realUrl = realUrl + '?' + query;
 
-            return fetch(realUrl, {credentials: "same-origin", method: method})
-                .then(response => response.json()).catch(error => console.log('Error', error));
+            return fetch(realUrl, {
+                credentials: 'same-origin',
+                method: method,
+            })
+                .then(response => response.json())
+                .catch(error => console.log('Error', error));
         }
 
-        if(params instanceof FormData){
+        if (params instanceof FormData) {
             formData = param;
-        }else{
-            Object.keys(params).forEach(function (key) {
+        } else {
+            Object.keys(params).forEach(function(key) {
                 formData.append(key, params[key]);
             });
         }
 
         const token = this.getCSRFToken();
-        formData.append('_token',token);
+        formData.append('_token', token);
         return fetch(realUrl, {
-            credentials: "same-origin", method: method, body: formData})
-            .then(response => response.json()).catch(error => console.log('Error', error));
+            credentials: 'same-origin',
+            method: method,
+            body: formData,
+        })
+            .then(response => response.json())
+            .catch(error => console.log('Error', error));
     }
 }
 

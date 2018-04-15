@@ -1,6 +1,6 @@
 // @flow
-import autobind from "autobind-decorator";
-import * as React from "react";
+import autobind from 'autobind-decorator';
+import * as React from 'react';
 import {
     Header as BaseHeader,
     Left,
@@ -9,32 +9,32 @@ import {
     Body,
     Title,
     Right,
-} from "native-base";
-import {inject} from "mobx-react";
-import {config} from "../helpers";
-import NavigationHelper from "../helpers/NavigationHelper"
+} from 'native-base';
+import { inject } from 'mobx-react';
+import { config } from '../helpers';
+import NavigationHelper from '../helpers/NavigationHelper';
 
 @inject('navigation')
 class Header extends React.Component {
-
     @autobind
     handlePressDrawerMenuButton() {
-        const {navigation} = this.props;
-        NavigationHelper.openDrawer(navigation)
+        const { navigation } = this.props;
+        NavigationHelper.openDrawer(navigation);
     }
 
-    getLeftButton()
-    {
-        if( config('navigation.type', 'drawer') === 'drawer' ){
+    getLeftButton() {
+        if (config('navigation.type', 'drawer') === 'drawer') {
             return (
-                <Button transparent title="" onPress={this.handlePressDrawerMenuButton}>
-                    <Icon
-                        name="menu"
-                    />
+                <Button
+                    transparent
+                    title=""
+                    onPress={this.handlePressDrawerMenuButton}
+                >
+                    <Icon name="menu" />
                 </Button>
-            )
-        }else{
-            return ("");
+            );
+        } else {
+            return '';
         }
     }
 
@@ -42,13 +42,11 @@ class Header extends React.Component {
         const leftButton = this.getLeftButton();
         return (
             <BaseHeader>
-                <Left>
-                    {leftButton}
-                </Left>
+                <Left>{leftButton}</Left>
                 <Body>
-                <Title>{this.props.title}</Title>
+                    <Title>{this.props.title}</Title>
                 </Body>
-                <Right/>
+                <Right />
             </BaseHeader>
         );
     }

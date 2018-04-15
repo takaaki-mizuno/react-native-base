@@ -2,34 +2,29 @@
 import { PixelRatio, Dimensions, Platform } from 'react-native';
 
 class DeviceHelper {
-
-    static getPixelRatio(){
+    static getPixelRatio() {
         return PixelRatio.get();
     }
 
-    static getScreenWidth(){
+    static getScreenWidth() {
         return Dimensions.get('window').width;
     }
 
-    static getScreenHeight(){
+    static getScreenHeight() {
         return Dimensions.get('window').height;
     }
 
-    static getOS()
-    {
+    static getOS() {
         return Platform.OS;
     }
 
-    static isAndroid()
-    {
+    static isAndroid() {
         return Platform.OS === 'android';
     }
 
-    static isIOS()
-    {
+    static isIOS() {
         return Platform.OS === 'ios';
     }
-
 }
 
 export default DeviceHelper;

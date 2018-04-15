@@ -1,9 +1,9 @@
 // @flow
-import React from "react";
-import Login from "../screens/Login";
-import Home from "../screens/Home";
-import Setting from "../screens/Setting";
-import WebView from "../screens/WebView";
+import React from 'react';
+import Login from '../screens/Login';
+import Home from '../screens/Home';
+import Setting from '../screens/Setting';
+import WebView from '../screens/WebView';
 
 const Routes = {
     Setting: {
@@ -15,9 +15,9 @@ const Routes = {
     Home: {
         screen: Home,
     },
-    WebView : {
+    WebView: {
         screen: WebView,
-    }
+    },
 };
 
 export default Routes;

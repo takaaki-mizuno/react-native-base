@@ -1,12 +1,8 @@
 // @flow
-import BaseStore from "./BaseStore"
+import BaseStore from './BaseStore';
 
 class RootStore extends BaseStore {
-
-    setStores({
-                  SessionStore = null,
-                  SettingStore = null,
-              }) {
+    setStores({ SessionStore = null, SettingStore = null }) {
         this.SessionStore = SessionStore;
         this.SettingStore = SettingStore;
     }

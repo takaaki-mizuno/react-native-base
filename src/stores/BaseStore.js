@@ -1,17 +1,14 @@
-
 class BaseStore {
-    constructor(rootStore=null) {
+    constructor(rootStore = null) {
         this.rootStore = rootStore;
         this.rehydrate = undefined;
     }
 
-    registerRehydrate(rehydrate)
-    {
+    registerRehydrate(rehydrate) {
         this.rehydrate = rehydrate;
     }
 
-    getName()
-    {
+    getName() {
         return this.constructor.name;
     }
 }

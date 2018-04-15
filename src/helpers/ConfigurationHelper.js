@@ -1,6 +1,6 @@
 // @flow
-import appConfig from "../config/app";
-import * as _ from "lodash";
+import appConfig from '../config/app';
+import * as _ from 'lodash';
 
 class ConfigurationHelper {
     static get(name: string, defaultValue = null) {
@@ -8,7 +8,7 @@ class ConfigurationHelper {
     }
 }
 
-export function config (name: string, defaultValue = null) {
+export function config(name: string, defaultValue = null) {
     return ConfigurationHelper.get(name, defaultValue);
 }
 

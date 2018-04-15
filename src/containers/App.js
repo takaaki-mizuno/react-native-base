@@ -1,14 +1,13 @@
 // @flow
-import React from "react";
-import {Root, Container, Content, Text} from "native-base";
-import {inject} from "mobx-react";
-import autobind from "autobind-decorator";
-import BaseStack from "./BaseStack"
-import {observer} from "mobx-react/native";
+import React from 'react';
+import { Root, Container, Content, Text } from 'native-base';
+import { inject } from 'mobx-react';
+import autobind from 'autobind-decorator';
+import BaseStack from './BaseStack';
+import { observer } from 'mobx-react/native';
 
 @observer
 export default class App extends React.Component {
-
     getCurrentRouteName(navigationState) {
         if (!navigationState) {
             return null;
@@ -27,20 +26,22 @@ export default class App extends React.Component {
         const routeName = this.getCurrentRouteName(next);
 
         //        const { translucent, backgroundColor, barStyle } = getStatusBarConfig(
-//            routeName
-//        );
+        //            routeName
+        //        );
 
-//        if (Platform.OS === 'android') {
-//            StatusBar.setTranslucent(translucent);
-//            StatusBar.setBackgroundColor(backgroundColor);
-//        }
-//        StatusBar.setBarStyle(barStyle);
+        //        if (Platform.OS === 'android') {
+        //            StatusBar.setTranslucent(translucent);
+        //            StatusBar.setBackgroundColor(backgroundColor);
+        //        }
+        //        StatusBar.setBarStyle(barStyle);
     }
 
     render() {
         return (
             <Root>
-                <BaseStack onNavigationStateChange={this.handleNavigationStateChange}/>
+                <BaseStack
+                    onNavigationStateChange={this.handleNavigationStateChange}
+                />
             </Root>
         );
     }

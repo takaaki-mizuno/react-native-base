@@ -1,18 +1,16 @@
 // @flow
-import React from "react";
-import {
-    StackNavigator
-} from 'react-navigation';
-import Routes from "./Routes"
-import Drawer from "./Drawer"
-import Tab from "./Tab"
-import Tutorial from "../screens/Tutorial";
+import React from 'react';
+import { StackNavigator } from 'react-navigation';
+import Routes from './Routes';
+import Drawer from './Drawer';
+import Tab from './Tab';
+import Tutorial from '../screens/Tutorial';
 
-import {config} from "../helpers";
+import { config } from '../helpers';
 
 export default (() => {
     const routes = {
-        ...Routes
+        ...Routes,
     };
     let initialRouteName = 'Root';
     const navigationType = config('navigation.type', 'drawer');
@@ -21,28 +19,24 @@ export default (() => {
     if (navigationType === 'drawer') {
         routes['Root'] = {
             screen: Drawer,
-            path: 'root'
+            path: 'root',
         };
     } else if (navigationType === 'tab') {
         routes['Root'] = {
             screen: Tab,
-            path: 'root'
+            path: 'root',
         };
     }
     if (hasTutorial) {
         routes['Tutorial'] = {
             screen: Tutorial,
-            path: 'tutorial'
+            path: 'tutorial',
         };
         initialRouteName = 'Tutorial';
     }
 
-    return StackNavigator(
-        routes,
-        {
-            initialRouteName: initialRouteName,
-            headerMode: "none",
-        }
-    );
+    return StackNavigator(routes, {
+        initialRouteName: initialRouteName,
+        headerMode: 'none',
+    });
 })();
-

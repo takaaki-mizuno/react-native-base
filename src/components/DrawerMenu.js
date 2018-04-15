@@ -1,26 +1,20 @@
-import * as React from "react";
-import {
-    View,
-    Text
-} from "native-base";
-import {
-    DrawerItems
-} from 'react-navigation';
-import {ScrollView} from "react-native";
+import * as React from 'react';
+import { View, Text } from 'native-base';
+import { DrawerItems } from 'react-navigation';
+import { ScrollView } from 'react-native';
 
-import {config} from "../helpers";
+import { config } from '../helpers';
 
 class DrawerMenu extends React.Component {
-
     getHeader() {
         if (config('navigation.drawer.showUserInfo', false)) {
             return (
-                <View style={{padding: 16,}}>
-                    <Text style={{fontSize: 24}}>DRAWER TEST</Text>
+                <View style={{ padding: 16 }}>
+                    <Text style={{ fontSize: 24 }}>DRAWER TEST</Text>
                 </View>
             );
         }
-        return "";
+        return '';
     }
 
     render() {
