@@ -16,15 +16,17 @@ class SettingStore extends BaseStore {
         super();
         const settingGroups = config('settings.groups', []);
         const observables = {};
+        const schema = {};
         for (const settingGroup of settingGroups) {
             for (const settingItem of settingGroup.items) {
                 observables[settingItem.name] = settingItem.defaultValue;
+                schema[settingItem.name] = true;
             }
         }
 
         extendObservable(this, observables);
+        persist(schema)(this);
         for (let [key, value] of Object.entries(observables)) {
-            persist(this[key])(this);
             reaction(
                 () => this[key],
                 data => {
@@ -33,9 +35,9 @@ class SettingStore extends BaseStore {
                             this.getStorage();
                             console.log(
                                 key +
-                                    ' Changed to ' +
-                                    data +
-                                    '. Setting Store Rehydrated'
+                                ' Changed to ' +
+                                data +
+                                '. Setting Store Rehydrated'
                             );
                         });
                     }
