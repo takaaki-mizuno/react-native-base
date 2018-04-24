@@ -10,11 +10,7 @@ import RowButton from "../../components/Buttons/RowButton";
 import {locale} from "../../helpers"
 
 class HomeScreen extends BaseScreen {
-
-    getTitle() {
-        return "Home";
-    }
-
+    
     getStyles() {
         return Styles;
     }
