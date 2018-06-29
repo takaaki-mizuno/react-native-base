@@ -35,9 +35,9 @@ class SettingStore extends BaseStore {
                             this.getStorage();
                             console.log(
                                 key +
-                                ' Changed to ' +
-                                data +
-                                '. Setting Store Rehydrated'
+                                    ' Changed to ' +
+                                    data +
+                                    '. Setting Store Rehydrated'
                             );
                         });
                     }

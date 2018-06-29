@@ -1,9 +1,14 @@
 // @flow
-import * as React from "react";
-import {StyleSheet, TouchableOpacity, TouchableNativeFeedback, View} from "react-native";
-import LabelText from "../Texts/LabelText"
-import DeviceHelper from "../../helpers/DeviceHelper";
-import Icon from "../Icon";
+import * as React from 'react';
+import {
+    StyleSheet,
+    TouchableOpacity,
+    TouchableNativeFeedback,
+    View,
+} from 'react-native';
+import Text from './Text';
+import DeviceHelper from '../helpers/DeviceHelper';
+import Icon from './Icon';
 
 type ButtonProps = {
     onPress: () => mixed,
@@ -19,8 +24,7 @@ type ButtonProps = {
     style: any,
 };
 
-class RowButton extends React.PureComponent<ButtonProps> {
-
+class Button extends React.PureComponent<ButtonProps> {
     static defaultProps = {
         width: DeviceHelper.getScreenWidth() - 112,
         height: 40,
@@ -44,15 +48,22 @@ class RowButton extends React.PureComponent<ButtonProps> {
                 flex: 1,
                 alignSelf: 'stretch',
                 backgroundColor: 'transparent',
-                ...{width, height, paddingBottom, paddingLeft, paddingRight, paddingTop}
+                ...{
+                    width,
+                    height,
+                    paddingBottom,
+                    paddingLeft,
+                    paddingRight,
+                    paddingTop,
+                },
             },
             button: {
-                backgroundColor: "#ffffff",
-                borderColor: "#000000",
+                backgroundColor: '#ffffff',
+                borderColor: '#000000',
                 borderRadius: 20,
-                borderStyle: "solid",
+                borderStyle: 'solid',
                 borderWidth: 1,
-                ...{width, height}
+                ...{ width, height },
             },
             inner: {
                 flex: 1,
@@ -79,7 +90,13 @@ class RowButton extends React.PureComponent<ButtonProps> {
 
     render(): React.Node {
         const {
-            style, onPress, iconName, label, disabled, width, height
+            style,
+            onPress,
+            iconName,
+            label,
+            disabled,
+            width,
+            height,
         } = this.props;
         const opacity = disabled ? 0.5 : 1;
         let Btn: React.ComponentType<*>;
@@ -95,18 +112,24 @@ class RowButton extends React.PureComponent<ButtonProps> {
         if (iconName) {
             icon = (
                 <View style={computedStyle.icon}>
-                    <Icon size={24} name={iconName}/>
+                    <Icon size={24} name={iconName} />
                 </View>
             );
         }
         return (
             <View style={[style, computedStyle.outer]}>
-                <Btn {...{onPress}} style={computedStyle.button}>
+                <Btn {...{ onPress }} style={computedStyle.button}>
                     <View style={computedStyle.inner}>
                         {icon}
                         <View style={computedStyle.label}>
-                            <View style={{height: 18}}>
-                                <LabelText size={18} align="center" fontFamily="HiraginoSans-W3">{label}</LabelText>
+                            <View style={{ height: 18 }}>
+                                <Text
+                                    size={18}
+                                    align="center"
+                                    fontFamily="HiraginoSans-W3"
+                                >
+                                    {label}
+                                </Text>
                             </View>
                         </View>
                     </View>
@@ -116,4 +139,4 @@ class RowButton extends React.PureComponent<ButtonProps> {
     }
 }
 
-export default RowButton;
+export default Button;

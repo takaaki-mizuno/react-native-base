@@ -1,0 +1,120 @@
+{
+  "colors": {
+    "primary":"#005276",
+    "secondary": "#769194",
+    "tertiary": "#005276",
+    "background": "#FAFAFA",
+    "buttonBackground": "#ECF0F1",
+    "listBackground": "#F2F4F5",
+    "popupBackground": "#FFFFFF",
+    "link": ["#17E0DA","#55AEFF"],
+    "title": ["#1A92A3","#3D659E"],
+    "accent": ["#FFAC00","#FF0073"],
+    "border": "#C5D5D8",
+    "textOnImage": "#FFFFFF"
+  },
+  "typography": {
+    "default": {
+      "fontFamily": "Montserrat-Medium",
+      "fontSize": 12,
+      "lineHeight": 15,
+      "fontWeight": "normal"
+    },
+    "notation": {
+      "fontFamily": "sans-serif",
+      "fontSize": 10,
+      "lineHeight": 15,
+      "fontWeight": "normal"
+    },
+    "title": {
+      "fontFamily": "Montserrat-Bold",
+      "fontSize": 14,
+      "lineHeight": 18,
+      "fontWeight": "bold"
+    },
+    "subtitle": {
+      "fontFamily": "Montserrat-Bold",
+      "fontSize": 12,
+      "lineHeight": 12,
+      "fontWeight": "bold"
+    },
+    "button": {
+      "fontFamily": "Montserrat-Bold",
+      "fontSize": 14,
+      "lineHeight": 18,
+      "fontWeight": "bold"
+    },
+    "strongMessage": {
+      "fontFamily": "Montserrat-Bold",
+      "fontSize": 18,
+      "lineHeight": 18,
+      "fontWeight": "bold"
+    },
+    "multilineTextBox": {
+      "fontFamily": "Montserrat-Medium",
+      "fontSize": 14,
+      "lineHeight": 20,
+      "fontWeight": "normal"
+    },
+    "profileTitle": {
+      "fontFamily": "Montserrat-Medium",
+      "fontSize": 18,
+      "lineHeight": 18,
+      "fontWeight": "bold"
+    },
+    "profileIntroduction": {
+      "fontFamily": "sans-serif",
+      "fontSize": 10,
+      "lineHeight": 14,
+      "fontWeight": "normal"
+    },
+    "InfoBoxMainLabel": {
+      "fontFamily": "Montserrat-Bold",
+      "fontSize": 12,
+      "lineHeight": 15,
+      "fontWeight": "bold"
+    },
+    "InfoBoxSubLabel": {
+      "fontFamily": "Montserrat-Medium",
+      "fontSize": 8,
+      "lineHeight": 10,
+      "fontWeight": "bold"
+    },
+    "profileTabLabel": {
+      "fontFamily": "Montserrat-Bold",
+      "fontSize": 10,
+      "lineHeight": 15,
+      "fontWeight": "bold"
+    },
+    "postUserName": {
+      "fontFamily": "Montserrat-Bold",
+      "fontSize": 10,
+      "lineHeight": 15,
+      "fontWeight": "bold"
+    },
+    "zineHeader": {
+      "fontFamily": "Montserrat-Bold",
+      "fontSize": 12,
+      "lineHeight": 15,
+      "fontWeight": "bold"
+    },
+    "zineWideBoxLabel": {
+      "fontFamily": "Montserrat-Bold",
+      "fontSize": 36,
+      "lineHeight": 36,
+      "fontWeight": "bold"
+    },
+    "zineBoxLabel": {
+      "fontFamily": "Montserrat-Bold",
+      "fontSize": 24,
+      "lineHeight": 24,
+      "fontWeight": "bold"
+    },
+    "markLabel": {
+      "fontFamily": "Montserrat-Regular",
+      "fontSize": 10,
+      "lineHeight": 10,
+      "fontWeight": "bold"
+    }
+  }
+}
