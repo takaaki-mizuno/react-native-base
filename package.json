@@ -20,9 +20,11 @@
     "react-native-htmlview": "^0.12.1",
     "react-native-i18n": "^2.0.12",
     "react-native-image-picker": "^0.26.10",
+    "react-native-linear-gradient": "^2.4.0",
     "react-native-settings-list": "^1.8.0",
     "react-native-svg": "^6.3.1",
     "react-native-swiper": "^1.5.13",
+    "react-native-text-gradient": "^0.0.9",
     "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^1.5.11"
   },
@@ -44,5 +46,10 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
   }
 }

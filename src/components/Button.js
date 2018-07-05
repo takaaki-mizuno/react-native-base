@@ -32,6 +32,7 @@ class Button extends React.PureComponent<ButtonProps> {
         paddingBottom: 10,
         paddingLeft: 56,
         paddingRight: 56,
+        style: {},
     };
 
     computeStyle() {

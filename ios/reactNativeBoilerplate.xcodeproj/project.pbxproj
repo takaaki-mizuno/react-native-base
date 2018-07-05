@@ -56,6 +56,10 @@
 		F7DDADBB7B564112A162F6FC /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 973526D937764834B4BB6FDE /* MaterialCommunityIcons.ttf */; };
 		2CBB925791004F3781F823D6 /* libRNI18n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A13973CCC9410AA0B88192 /* libRNI18n.a */; };
 		9297A381DC1B422FA502C142 /* libRNI18n-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 686CC500303C4FB9B1710033 /* libRNI18n-tvOS.a */; };
+		D529BE523E6941BBB46A6DEA /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D2E6BB48294A6297670A42 /* libRNImagePicker.a */; };
+		D377E5ECAAEF40C8AB8849B7 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6544B07FF2E4B799D6BD04D /* libBVLinearGradient.a */; };
+		35794264383544C69875CD11 /* libRNTextGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AACF021D73A478282C993D3 /* libRNTextGradient.a */; };
+		12F6E6354A954AA1A978F0A5 /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD4C47EC11004D33A8592E13 /* icomoon.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -383,6 +387,13 @@
 		B20AE74ECDFB44CC81E62E32 /* RNI18n.xcodeproj */ = {isa = PBXFileReference; name = "RNI18n.xcodeproj"; path = "../node_modules/react-native-i18n/ios/RNI18n.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		68A13973CCC9410AA0B88192 /* libRNI18n.a */ = {isa = PBXFileReference; name = "libRNI18n.a"; path = "libRNI18n.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		686CC500303C4FB9B1710033 /* libRNI18n-tvOS.a */ = {isa = PBXFileReference; name = "libRNI18n-tvOS.a"; path = "libRNI18n-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		270950D6DAC54AC1B937F0E6 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; name = "RNImagePicker.xcodeproj"; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		A0D2E6BB48294A6297670A42 /* libRNImagePicker.a */ = {isa = PBXFileReference; name = "libRNImagePicker.a"; path = "libRNImagePicker.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		00E464C4ACC44479BD9DB1DE /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; name = "BVLinearGradient.xcodeproj"; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		F6544B07FF2E4B799D6BD04D /* libBVLinearGradient.a */ = {isa = PBXFileReference; name = "libBVLinearGradient.a"; path = "libBVLinearGradient.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		5D151BBD47504F43A0E347B0 /* RNTextGradient.xcodeproj */ = {isa = PBXFileReference; name = "RNTextGradient.xcodeproj"; path = "../node_modules/react-native-text-gradient/ios/RNTextGradient.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		1AACF021D73A478282C993D3 /* libRNTextGradient.a */ = {isa = PBXFileReference; name = "libRNTextGradient.a"; path = "libRNTextGradient.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		DD4C47EC11004D33A8592E13 /* icomoon.ttf */ = {isa = PBXFileReference; name = "icomoon.ttf"; path = "../assets/fonts/icomoon.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -414,6 +425,9 @@
 				26B84BDA39594C30B9486C06 /* libRNSVG.a in Frameworks */,
 				8CD0402C4C8444D8880AD81F /* libRNVectorIcons.a in Frameworks */,
 				2CBB925791004F3781F823D6 /* libRNI18n.a in Frameworks */,
+				D529BE523E6941BBB46A6DEA /* libRNImagePicker.a in Frameworks */,
+				D377E5ECAAEF40C8AB8849B7 /* libBVLinearGradient.a in Frameworks */,
+				35794264383544C69875CD11 /* libRNTextGradient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +619,9 @@
 				4C7F4B5CDAF54375BE7EE2A2 /* RNSVG.xcodeproj */,
 				4B1418F40B5D47B29554EA35 /* RNVectorIcons.xcodeproj */,
 				B20AE74ECDFB44CC81E62E32 /* RNI18n.xcodeproj */,
+				270950D6DAC54AC1B937F0E6 /* RNImagePicker.xcodeproj */,
+				00E464C4ACC44479BD9DB1DE /* BVLinearGradient.xcodeproj */,
+				5D151BBD47504F43A0E347B0 /* RNTextGradient.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -670,6 +687,7 @@
 				EBA35E44305B44D894C9B6BC /* Zocial.ttf */,
 				9135775BD60B49A28CC0D3ED /* Feather.ttf */,
 				973526D937764834B4BB6FDE /* MaterialCommunityIcons.ttf */,
+				DD4C47EC11004D33A8592E13 /* icomoon.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1135,6 +1153,7 @@
 				011135B03B9F4857A6BC0533 /* Zocial.ttf in Resources */,
 				801A15BC8CAC4A18B1BDCF12 /* Feather.ttf in Resources */,
 				F7DDADBB7B564112A162F6FC /* MaterialCommunityIcons.ttf in Resources */,
+				12F6E6354A954AA1A978F0A5 /* icomoon.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1273,12 +1292,18 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/ios",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-text-gradient/ios/**",
 				);
 			};
 			name = Debug;
@@ -1304,12 +1329,18 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/ios",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-text-gradient/ios/**",
 				);
 			};
 			name = Release;
@@ -1334,6 +1365,9 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/ios",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-text-gradient/ios/**",
 				);
 			};
 			name = Debug;
@@ -1357,6 +1391,9 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/ios",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-text-gradient/ios/**",
 				);
 			};
 			name = Release;
@@ -1391,12 +1428,18 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/ios",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-text-gradient/ios/**",
 				);
 			};
 			name = Debug;
@@ -1431,12 +1474,18 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/ios",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-text-gradient/ios/**",
 				);
 			};
 			name = Release;
@@ -1470,12 +1519,18 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/ios",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-text-gradient/ios/**",
 				);
 			};
 			name = Debug;
@@ -1509,12 +1564,18 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/ios",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-text-gradient/ios/**",
 				);
 			};
 			name = Release;

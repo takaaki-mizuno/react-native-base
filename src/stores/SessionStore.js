@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { observable } from 'mobx';
+import { observable, action } from 'mobx';
 import { persist } from 'mobx-persist';
 import BaseStore from './BaseStore';
 import { MeRepository } from '../repositories';

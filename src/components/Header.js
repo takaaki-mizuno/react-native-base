@@ -4,16 +4,18 @@ import * as React from 'react';
 import { inject } from 'mobx-react';
 import { config } from '../helpers';
 import NavigationHelper from '../helpers/NavigationHelper';
-import TitleText from './Texts/TitleText';
+import Text from './Text';
 import { StyleSheet, View } from 'react-native';
 import DeviceHelper from '../helpers/DeviceHelper';
-import IconButton from './Buttons/IconButton';
+import IconButton from './IconButton';
 
 export type HeaderProps = {
     hasBackButton: boolean,
     title: string,
     leftButtonIcons?: Array,
     rightButtonIcons?: Array,
+    leftButtonColor: string,
+    rightButtonColor: string,
     onLeftButtonPress?: any,
     onRightButtonPress?: any,
     onTitlePress?: any,
@@ -21,9 +23,13 @@ export type HeaderProps = {
 
 @inject('navigation')
 class Header extends React.Component<HeaderProps> {
+    static iconSize = 32;
+
     static defaultProps = {
         hasBackButton: false,
         title: '',
+        leftButtonColor: 'primary',
+        rightButtonColor: 'primary',
     };
 
     @autobind
@@ -56,6 +62,10 @@ class Header extends React.Component<HeaderProps> {
     }
 
     computeStyle() {
+        const { rightButtonIcons } = this.props;
+        const countRightButtons = Array.isArray(rightButtonIcons)
+            ? rightButtonIcons.length
+            : 1;
         return StyleSheet.create({
             outer: {
                 flexDirection: 'row',
@@ -90,7 +100,7 @@ class Header extends React.Component<HeaderProps> {
                 flex: 1,
                 flexDirection: 'row',
                 right: 8,
-                width: 152,
+                width: countRightButtons * 40 - 8,
                 alignSelf: 'center',
                 alignItems: 'flex-end',
             },
@@ -110,7 +120,7 @@ class Header extends React.Component<HeaderProps> {
     }
 
     getLeftButtons() {
-        const { hasBackButton, leftButtonIcons } = this.props;
+        const { hasBackButton, leftButtonIcons, leftButtonColor } = this.props;
         const styles = this.computeStyle();
         const buttons = [];
 
@@ -120,7 +130,7 @@ class Header extends React.Component<HeaderProps> {
                     <IconButton
                         iconName="back"
                         onPress={this.handlePressBackButton}
-                        size={32}
+                        size={Header.iconSize}
                         iconColor="primary"
                     />
                 </View>
@@ -136,8 +146,8 @@ class Header extends React.Component<HeaderProps> {
                             onPress={() => {
                                 this.handleOnLeftButtonPress(index, iconName);
                             }}
-                            size={32}
-                            iconColor="primary"
+                            size={Header.iconSize}
+                            iconColor={leftButtonColor}
                         />
                     </View>
                 );
@@ -153,7 +163,7 @@ class Header extends React.Component<HeaderProps> {
                 <IconButton
                     iconName="menu"
                     onPress={this.handlePressDrawerMenuButton}
-                    size={32}
+                    size={Header.iconSize}
                     iconColor="primary"
                 />
             );
@@ -163,7 +173,7 @@ class Header extends React.Component<HeaderProps> {
     }
 
     getRightButtons() {
-        const { rightButtonIcons } = this.props;
+        const { rightButtonIcons, rightButtonColor } = this.props;
         const styles = this.computeStyle();
 
         if (rightButtonIcons && rightButtonIcons.length > 0) {
@@ -176,8 +186,8 @@ class Header extends React.Component<HeaderProps> {
                             onPress={() => {
                                 this.handleOnRightButtonPress(index, iconName);
                             }}
-                            size={32}
-                            iconColor="primary"
+                            size={Header.iconSize}
+                            iconColor={rightButtonColor}
                         />
                     </View>
                 );
@@ -195,9 +205,9 @@ class Header extends React.Component<HeaderProps> {
         return (
             <View style={style.outer}>
                 <View style={style.body}>
-                    <TitleText color={this.props.titleColor}>
+                    <Text color={this.props.titleColor}>
                         {this.props.title}
-                    </TitleText>
+                    </Text>
                 </View>
                 <View style={style.left}>{leftButtons}</View>
                 <View style={style.right}>{rightButtons}</View>

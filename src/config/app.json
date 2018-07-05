@@ -21,7 +21,7 @@
     {
       "name": "Setting",
       "title": "Settings",
-      "icon": "settings"
+      "icon": "setting"
     }
   ],
   "hasTutorial": true,

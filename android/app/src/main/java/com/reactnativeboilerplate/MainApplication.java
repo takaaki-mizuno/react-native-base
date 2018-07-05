@@ -3,6 +3,9 @@ package com.reactnativeboilerplate;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import iyegoroff.RNTextGradient.RNTextGradientPackage;
+import com.BV.LinearGradient.LinearGradientPackage;
+import com.imagepicker.ImagePickerPackage;
 import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.horcrux.svg.SvgPackage;
@@ -26,6 +29,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNTextGradientPackage(),
+            new LinearGradientPackage(),
+            new ImagePickerPackage(),
             new RNI18nPackage(),
             new VectorIconsPackage(),
             new SvgPackage()
