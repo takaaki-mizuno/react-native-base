@@ -7,12 +7,13 @@ export type TextProps = {
     color: string,
     children: string,
     align: 'auto' | 'left' | 'right' | 'center' | 'justify',
-    numberOfLines?: number,
-    size: number,
+    numberOfLines: number,
     width?: number,
     height?: number,
     style: any,
     fontFamily: string,
+    weight: string,
+    size: number,
 };
 
 class Text extends React.PureComponent<TextProps> {
@@ -20,21 +21,29 @@ class Text extends React.PureComponent<TextProps> {
         color: '#ffffff',
         align: 'left',
         size: 14,
+        weight: 'normal',
         fontFamily: 'Cochin',
         style: {},
+        numberOfLines: 1,
     };
 
     computeStyle() {
-        const { align: textAlign, size: fontSize, fontFamily } = this.props;
+        const {
+            align: textAlign,
+            weight: fontWeight,
+            size: fontSize,
+            fontFamily,
+        } = this.props;
         const color = (() => {
             return this.props.color;
         })();
         return StyleSheet.create({
             text: {
-                ...{ textAlign, fontSize, color, fontFamily },
+                ...{ textAlign, fontSize, color, fontFamily, fontWeight },
             },
         });
     }
+
     s;
 
     render(): React.Node {

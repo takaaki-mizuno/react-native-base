@@ -8,3 +8,5 @@ export {
     color,
     theme,
 } from './ThemeHelper';
+export { default as ImagePickerHelper } from './ImagePickerHelper';
+export { default as StringHelper } from './StringHelper';

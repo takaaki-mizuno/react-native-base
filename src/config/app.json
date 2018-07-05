@@ -76,5 +76,10 @@
         ]
       }
     ]
+  },
+  "api": {
+    "baseUrl": "https://example.com/api/v1",
+    "clientId": "OAuth Client ID",
+    "clientSecret": "OAuth Secret"
   }
 }
