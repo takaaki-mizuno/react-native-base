@@ -1,16 +1,17 @@
 // @flow
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
-import Routes from './Routes';
+import Routes, { StackRoutes } from './Routes';
 import Drawer from './Drawer';
 import Tab from './Tab';
 import Tutorial from '../screens/Tutorial';
 
 import { config } from '../helpers';
 
-export default (() => {
+export default (SessionStore, SettingStore) => {
     const routes = {
         ...Routes,
+        ...StackRoutes,
     };
     let initialRouteName = 'Root';
     const navigationType = config('navigation.type', 'drawer');
@@ -27,16 +28,20 @@ export default (() => {
             path: 'root',
         };
     }
-    if (hasTutorial) {
+    if (SessionStore.isSignedIn()) {
+        initialRouteName = 'Root';
+    } else if (hasTutorial) {
         routes['Tutorial'] = {
             screen: Tutorial,
             path: 'tutorial',
         };
         initialRouteName = 'Tutorial';
+    } else {
+        initialRouteName = 'Login';
     }
 
     return StackNavigator(routes, {
         initialRouteName: initialRouteName,
         headerMode: 'none',
     });
-})();
+};

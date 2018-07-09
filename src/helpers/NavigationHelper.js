@@ -33,6 +33,10 @@ class NavigationHelper {
         navigation.dispatch(action);
     }
 
+    static back(navigation: NavigationScreenProp<*>, key = '') {
+        navigation.goBack(key);
+    }
+
     static openDrawer(navigation: NavigationScreenProp<*>) {
         console.log('Toggle Drawer');
         const action = NavigationActions.navigate({ routeName: 'DrawerOpen' });

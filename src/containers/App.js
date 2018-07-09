@@ -1,11 +1,11 @@
 // @flow
 import React from 'react';
-import { Root, Container, Content, Text } from 'native-base';
-import { inject } from 'mobx-react';
+import { Root } from 'native-base';
 import autobind from 'autobind-decorator';
 import BaseStack from './BaseStack';
-import { observer } from 'mobx-react/native';
+import { inject, observer } from 'mobx-react';
 
+@inject('SessionStore', 'SettingStore')
 @observer
 export default class App extends React.Component {
     getCurrentRouteName(navigationState) {
@@ -37,9 +37,12 @@ export default class App extends React.Component {
     }
 
     render() {
+        const { SessionStore, SettingStore } = this.props;
+        const BaseStackElement = BaseStack(SessionStore, SettingStore);
+
         return (
             <Root>
-                <BaseStack
+                <BaseStackElement
                     onNavigationStateChange={this.handleNavigationStateChange}
                 />
             </Root>

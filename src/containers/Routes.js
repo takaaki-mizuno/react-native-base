@@ -9,14 +9,17 @@ const Routes = {
     Setting: {
         screen: Setting,
     },
-    Login: {
-        screen: Login,
-    },
     Home: {
         screen: Home,
     },
     WebView: {
         screen: WebView,
+    },
+};
+
+export const StackRoutes = {
+    Login: {
+        screen: Login,
     },
 };
 
