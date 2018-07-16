@@ -90,7 +90,7 @@ class BaseRepository {
         return this.request('POST', url, params);
     }
 
-    request(method, url, params = {}) {
+    request(method, url, params = {}, additionalHeaders = {}) {
         let realUrl = this.BASE_URL + url;
         let formData = new FormData();
         console.log('Base URL:' + this.BASE_URL);
@@ -103,6 +103,9 @@ class BaseRepository {
         const clientInfo = this.getClientHeaderInfo();
         Object.keys(clientInfo).forEach(function(key) {
             headers.append(key, clientInfo[key]);
+        });
+        Object.keys(additionalHeaders).forEach(function(key) {
+            headers.append(key, additionalHeaders[key]);
         });
 
         console.log(headers);
