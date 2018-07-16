@@ -90,9 +90,10 @@ class BaseRepository {
         return this.request('POST', url, params);
     }
 
-    request(method, url, params = {}, additionalHeaders = {}) {
+    request(method, url, params = {}) {
         let realUrl = this.BASE_URL + url;
         let formData = new FormData();
+        console.log('Base URL:' + this.BASE_URL);
 
         const headers = new Headers();
         const authInfo = this.getAuthHeaderInfo();
@@ -103,37 +104,70 @@ class BaseRepository {
         Object.keys(clientInfo).forEach(function(key) {
             headers.append(key, clientInfo[key]);
         });
-        Object.keys(additionalHeaders).forEach(function(key) {
-            headers.append(key, additionalHeaders[key]);
-        });
+
+        console.log(headers);
 
         if (method === 'GET' || method === 'HEAD') {
             let query = Object.keys(params)
-                .map(
-                    k =>
-                        encodeURIComponent(k) +
-                        '=' +
-                        encodeURIComponent(params[k])
-                )
+                .map(key => {
+                    if (Array.isArray(params[key])) {
+                        const queries = [];
+                        for (const data of params[key]) {
+                            queries.push(
+                                encodeURIComponent(key) +
+                                    '[]=' +
+                                    encodeURIComponent(data)
+                            );
+                        }
+                        return queries.join('&');
+                    } else {
+                        return (
+                            encodeURIComponent(key) +
+                            '=' +
+                            encodeURIComponent(params[key])
+                        );
+                    }
+                })
                 .join('&');
             realUrl = realUrl + '?' + query;
+
+            console.log('GET URL:' + realUrl);
 
             return fetch(realUrl, {
                 credentials: 'same-origin',
                 method: method,
                 headers: headers,
             })
-                .then(response => response.json())
+                .then(response => {
+                    console.log(response);
+                    return response.text();
+                })
+                .then(html => {
+                    console.log(html);
+                    const json = JSON.parse(html);
+                    return new Promise(function(resolve) {
+                        resolve(json);
+                    });
+                })
                 .catch(error => console.log('Error', error));
         }
 
         if (params instanceof FormData) {
-            formData = param;
+            formData = params;
         } else {
-            Object.keys(params).forEach(function(key) {
-                formData.append(key, params[key]);
+            Object.keys(params).forEach(key => {
+                if (Array.isArray(params[key])) {
+                    for (const data of params[key]) {
+                        formData.append(key + '[]', data);
+                    }
+                } else {
+                    formData.append(key, params[key]);
+                }
             });
         }
+
+        console.log(method + ' : URL:' + realUrl);
+        console.log(formData);
 
         return fetch(realUrl, {
             credentials: 'same-origin',
@@ -141,7 +175,17 @@ class BaseRepository {
             body: formData,
             headers: headers,
         })
-            .then(response => response.json())
+            .then(response => {
+                console.log(response);
+                return response.text();
+            })
+            .then(html => {
+                console.log(html);
+                const json = JSON.parse(html);
+                return new Promise(function(resolve) {
+                    resolve(json);
+                });
+            })
             .catch(error => console.log('Error', error));
     }
 }
